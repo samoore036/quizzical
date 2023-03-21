@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Quizzical
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A trivia app that uses the opentdb API to make a quiz based on user preferences. 
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Users can choose the number of questions and categories for their trivia quiz. Default choices are 10 questions and any category. Users are allowed to select up to 50 questions for most categories. The API does not let you request more than 50 questions. 
 
-### `npm start`
+![image](https://user-images.githubusercontent.com/104536361/226721402-dbf24c04-94b7-488f-a2a8-3682ff151fbc.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are certain categories that have a lower total number of questions available from the API. In these cases, the user will be notified if the number of questions they selected exceeds the number of questions available. The API for category question limits can only be accessed through fetching by specific category ID which does not make this very accessible with the number of potential requests. For this reason, questionLimit.js in the components folder lists those category IDs that have max question limits under 50 (there are only three). 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/104536361/226721515-6751208d-3860-4057-9dde-ae420e42dade.png)
 
-### `npm test`
+After the user makes their selections and starts the quiz, the app will send a request for these specifications to the API to receive the data. Once the data is loaded in, the user is able to start their quiz. The check answers button at the bottom will compare user's answers to the correct answers from the API and give the user a score, along with showing the correct answer for each question.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/104536361/226722514-8af68759-b9ca-41c2-8153-a5e1e8df82d3.png)
 
-### `npm run build`
+Clicking play again will reset the state and bring the user back to the selection menu to play another round. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This app uses he (https://github.com/mathiasbynens/he), an html decoder that will parse the API for any html strings and decodes them to regular text format. 
